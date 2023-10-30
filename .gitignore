@@ -1,0 +1,8 @@
+# styles
+**/*/output.css
+
+# js
+**/*/node_modules
+
+# rust
+/target
