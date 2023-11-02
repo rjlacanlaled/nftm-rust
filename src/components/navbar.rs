@@ -26,6 +26,7 @@ pub fn navbar() -> Markup {
                 div class="hidden gap-2 lg:flex" {
                     a href="/" {"Home"}
                     a href="/collections" {"Collections"}
+                    a href="/assets" {"Assets"}
                 }
 
                 // Auth / User profile
@@ -45,6 +46,7 @@ fn mobile_menu() -> Markup {
             button _ = "on click add .hidden to #mobile-menu" {"X"}
             a href = "/" { "Home" }
             a href = "/collections" { "Collections" }
+            a href = "/assets" {"Assets"}
             (button_primary("Login"))
             (button_primary("Sign up"))
         }

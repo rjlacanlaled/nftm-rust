@@ -6,6 +6,8 @@ pub mod not_found;
 pub mod home;
 pub mod collections;
 pub mod collection;
+pub mod asset;
+pub mod assets;
 
 // Dummy data
 pub mod dummy_data;

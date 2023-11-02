@@ -1,19 +1,17 @@
 use actix_web::{ HttpRequest, Result as ActixResult, get, web };
 use maud::{ Markup, html };
 
-use crate::{
-    pages::{ index::index, dummy_data::get_dummy_collections },
-    components::collection_card::{ collection_card, self },
-};
+use crate::pages::index::index;
 
-pub struct Collection {
+pub struct Asset {
     pub id: u32,
     pub img_url: String,
     pub name: String,
-    pub volume: f64,
+    pub price: f64,
+    pub collection_id: u32,
 }
 
-#[get("/collection/{id}")]
+#[get("/asset/{id}")]
 pub async fn page(req: HttpRequest, path: web::Path<(u32,)>) -> ActixResult<Markup> {
     // TODO: Fetch collection data from database
 
@@ -24,9 +22,8 @@ pub async fn page(req: HttpRequest, path: web::Path<(u32,)>) -> ActixResult<Mark
     let content =
         html! {
             div class = "flex flex-col w-full h-full gap-10 py-5 bg-green-400" {
-                div class="relative" {
-                    img src="https://placekitten.com/500/150" class="w-full bg-red-700 rounded-t-lg" {}
-                    img src="https://placekitten.com/150/15" class="absolute bottom-0 w-24 h-24 transform -translate-x-1/2 translate-y-1/2 border-4 border-white rounded-full left-2/4" {}
+                div class="w-full h-[200px] bg-red-300 blur-sm z-1" {
+                    p {"Banner here"}
                 }
 
                 h1 {

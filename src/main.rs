@@ -14,6 +14,8 @@ async fn main() -> std::io::Result<()> {
             .service(pages::home::page)
             .service(pages::collections::page)
             .service(pages::collection::page)
+            .service(pages::assets::page)
+            .service(pages::asset::page)
             .service(ActixFiles::new("/", "./src/static").prefer_utf8(true))
             .default_service(route().to(not_found))
     })
