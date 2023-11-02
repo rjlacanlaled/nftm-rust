@@ -1,7 +1,7 @@
 use actix_web::HttpRequest;
 use maud::{ Markup, html };
 
-use crate::components::navbar::navbar;
+use crate::components::{ navbar::navbar, footer::footer };
 
 use super::base::page;
 
@@ -11,11 +11,10 @@ pub async fn index(req: HttpRequest, child_content: Markup, title: &str, desc: &
     // TODO: Add your site or application content here.
     let content =
         html! {
-        #content {
+        #content class = "min-h-screen font-sans antialiased grainy bg-gradient-to-r from-gray-100 to-gray-30" {
             (navbar())
             (child_content)
-
-            // TODO: Add Footer Here
+            (footer())
         }
     };
     page(&host, title, desc, lang, content)
