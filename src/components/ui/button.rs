@@ -1,9 +1,7 @@
 use maud::{ Markup, html };
 
-pub fn button(title: &str, theme: &str) -> Markup {
-    let class = format!("text-white p-2 font-semibold text-md bg-{} rounded-md", theme);
-
+pub fn button_primary(title: &str) -> Markup {
     html! {
-        button class=(class) {(title)}
+        input class = "w-full p-2 font-semibold text-white rounded-md text-md bg-primary" type="button" value=(title);
     }
 }
