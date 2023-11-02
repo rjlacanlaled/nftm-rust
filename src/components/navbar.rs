@@ -4,7 +4,7 @@ use crate::components::ui::button::button_primary;
 
 pub fn navbar() -> Markup {
     html! {
-        nav ."flex justify-between px-10 py-2 bg-blue-100" {
+        nav ."flex justify-between px-10 py-2 bg-blue-100 z-10" {
                 // Logo
                 div class="flex gap-2" {
                     img src="/logo.png" class="w-10 h-10" {}
@@ -40,11 +40,11 @@ pub fn navbar() -> Markup {
 
 fn mobile_menu() -> Markup {
     html! {
-        div ."flex flex-col gap-2 bg-blue-100 absolute h-full w-full top-0 left-0 px-10 py-2 lg:hidden"
+        div ."flex flex-col gap-2 bg-blue-100 absolute h-full w-full top-0 left-0 px-10 py-2 lg:hidden bg-blue-800 backdrop-blur-md z-10"
         {
             button _ = "on click add .hidden to #mobile-menu" {"X"}
             a href = "/" { "Home" }
-            a href = "/collection" { "Collections" }
+            a href = "/collections" { "Collections" }
             (button_primary("Login"))
             (button_primary("Sign up"))
         }
